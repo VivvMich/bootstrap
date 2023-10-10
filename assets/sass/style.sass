@@ -1,23 +1,19 @@
-$vert-degeu: #33ffbb
-
-$colors-names: "orange", "cyan", "pink", "lime", "vert-degeu", "bisque"
-$colors-array: orange, cyan, pink, lime, $vert-degeu, bisque
+$colors-names: "canard-wc", "jaune-vomi", "turquoise-chelou", "orange-sanguine", "vert-pomme", "mais-parce-que", "jaune-vert", "violet"
+$colors-array: #4095bf, #bfaa40, #40bf80, #bf5540, #6abf40, #bf6a40, #aabf40, #bf40bf 
 
 @each $color in $colors-array
     $i: index($colors-array, $color)
     .#{nth($colors-names, $i)}
         background-color: $color
 
-.h-95
-    height: 95%
+$grid-breakpoints: ( xs: 0, sm: 576px, lg: 992px )
 
-.h-30
-    height: 30%
-
-@for $i from 1 through 10
-    .hh-#{$i * 10}
-        height: $i * 10%
-
-.row .hh-100 > div
-    display: flex
-    align-content: center !important
+@each $break-point, $value in $grid-breakpoints
+    @media screen and (min-width: $value)
+        @for $i from 1 through 20
+            @if $value > 0
+                .height-#{$break-point}-#{$i * 5}
+                    height: $i * 5% !important
+            @else 
+                .height-#{$i * 5}
+                    height: $i * 5% !important        
