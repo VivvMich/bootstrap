@@ -12,8 +12,8 @@ $grid-breakpoints: ( xs: 0, sm: 576px, lg: 992px )
     @media screen and (min-width: $value)
         @for $i from 1 through 20
             @if $value > 0
-                .height-#{$break-point}-#{$i * 5}
+                .hh-#{$break-point}-#{$i * 5}
                     height: $i * 5% !important
             @else 
-                .height-#{$i * 5}
-                    height: $i * 5% !important        
+                .hh-#{$i * 5}
+                    height: $i * 5% !important
